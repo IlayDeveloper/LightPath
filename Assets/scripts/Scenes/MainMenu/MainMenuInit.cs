@@ -5,8 +5,8 @@ using UnityEngine;
 namespace Scenes.MainMenu {
 	public class MainMenuInit : MonoBehaviour {
 		public GameObject GameStations;
-		public GameObject OneVsOne;
-		public GameObject TeamFight;
+		public GameObject BeginGame;
+		public GameObject LaserGame;
 		private GameObject games;
 		private GameObject gsInstance;
 
@@ -34,10 +34,10 @@ namespace Scenes.MainMenu {
 		{
 			switch(name)
 			{
-				case "OneVsOne":
-					return this.InitGame(this.OneVsOne);
-				case "TeamFight":
-					return this.InitGame(this.TeamFight);
+				case "Begin":
+					return this.InitGame(this.BeginGame);
+				case "Laser":
+					return this.InitGame(this.LaserGame);
 			}
 			return null;
 		}
@@ -46,11 +46,11 @@ namespace Scenes.MainMenu {
 		{
 			switch(name)
 			{
-				case "OneVsOne":
-					Destroy(GameObject.Find("OneVsOne"));
+				case "Begin":
+					Destroy(GameObject.Find("BeginGame"));
 					break;
-				case "TeamFight":
-					Destroy(GameObject.Find("TeamFight"));
+				case "Laser":
+					Destroy(GameObject.Find("LaserGame"));
 					break;	
 			}
 		}

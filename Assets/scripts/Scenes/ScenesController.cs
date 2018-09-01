@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 namespace Scenes 
 {
 	public class ScenesController : MonoBehaviour {
+		public const string SCENE_LOADED = "SCENE_LOADED";
 		public enum Scenes 
 		{
 			MainMenu,
-			OneVsOne,
-			TeamFight
+			Begin,
+			Laser
 
 		}
 		public float progress;
@@ -28,9 +29,9 @@ namespace Scenes
 
 			switch (scene)
 			{
-				case Scenes.OneVsOne:
-					StartCoroutine(LoadScene("OneVsOne"));
-					this.currentScene = "OneVsOne";
+				case Scenes.Begin:
+					StartCoroutine(LoadScene("Begin"));
+					this.currentScene = "Begin";
 					break;
 				case Scenes.MainMenu:
 					StartCoroutine(LoadScene("MainMenu"));
@@ -46,6 +47,14 @@ namespace Scenes
 				this.progress = Mathf.Clamp01(operation.progress / 0.9f);
 				yield return null;
 			}
+			
+			//Run the event scene loaded
+			this.SceneLoaded();
+		}
+
+		private void SceneLoaded ()
+		{
+			Messenger.Broadcast(ScenesController.SCENE_LOADED);
 		}
 
 	}

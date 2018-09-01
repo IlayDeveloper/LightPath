@@ -12,5 +12,6 @@ EditorBuildSettings:
     path: Assets/scenes/Loader.unity
     guid: dc873b93b1ce60e468db762933ad0c68
   - enabled: 1
-    path: Assets/scenes/OneVsOne.unity
+    path: Assets/scenes/Begin.unity
     guid: 7816dc336668cdf4a861f04e4151f9e4
+  m_configObjects: {}
